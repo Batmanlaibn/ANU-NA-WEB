@@ -1,4 +1,3 @@
- // script.js
 document.addEventListener('DOMContentLoaded', () => {
     const question1 = document.getElementById('question1');
     const yes1 = document.getElementById('yes1');
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalMessage = document.getElementById('finalMessage');
     const hearts = document.getElementById('hearts');
 
-    // Эхний асуултын үйлдэл
+    // First question
     yes1.addEventListener('click', () => {
         question1.classList.add('hidden');
         yes1.classList.add('hidden');
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Үнэхээр үгүй гэж үү?');
     });
 
-    // Хоёр дахь асуултын үйлдэл
+    // Second question
     yes2.addEventListener('click', () => {
         question2.classList.add('hidden');
         yes2.classList.add('hidden');
@@ -43,18 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Яагаад үгүй гэж? 😢');
     });
 
-    // Сүүлчийн асуултын үйлдэл
+    // Final question
     agree.addEventListener('click', () => {
         question3.classList.add('hidden');
         agree.classList.add('hidden');
         finalMessage.classList.remove('hidden');
 
-        // "I LOVE YOU" + Зүрх 1000 удаа харуулах
-        for (let i = 0; i < 1000; i++) {
+        // Generate hearts
+        setInterval(() => {
             const heart = document.createElement('span');
-            heart.textContent = 'I LOVE YOU ❤️';
+            heart.textContent = '❤️';
             heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
             hearts.appendChild(heart);
-        }
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }, 300); // New heart every 300ms
     });
 });
