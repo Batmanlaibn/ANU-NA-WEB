@@ -8,10 +8,11 @@ body {
 }
 
 .container {
-    margin-top: 50px;
+    margin-top: 300px;
 }
 
 h1 {
+  
     font-size: 2.5em;
     color: #ff4d4d;
     animation: fadeIn 1s ease-in;
@@ -39,6 +40,11 @@ button:hover {
 
 #finalMessage h2 {
     font-size: 3em;
+    color: #ff4d4d;
+    animation: fadeIn 2s ease-in;
+}
+#finalMessage h3 {
+    font-size: 23px;
     color: #ff4d4d;
     animation: fadeIn 2s ease-in;
 }
