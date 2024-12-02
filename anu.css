@@ -1,80 +1,82 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffd1dc;
     text-align: center;
-    padding-top: 10%;
+    background-color: #ffe6e6;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* No scroll */
+}
+
+.container {
+    margin-top: 50px;
 }
 
 h1 {
-    color: #ff6f6f;
     font-size: 2.5em;
+    color: #ff4d4d;
+    animation: fadeIn 1s ease-in;
 }
 
 button {
-    background-color: #ff6f6f;
-    color: white;
-    border: none;
-    padding: 15px 30px;
+    font-size: 1.5em;
     margin: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #ff6666;
+    border: none;
+    color: white;
     border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #ff3b3b;
+    background-color: #ff3333;
 }
 
 .hidden {
     display: none;
 }
 
-#finalMessage {
-    margin-top: 20px;
+#finalMessage h2 {
+    font-size: 3em;
+    color: #ff4d4d;
+    animation: fadeIn 2s ease-in;
 }
 
 #hearts {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 300px;
+    height: 100%;
+    overflow: hidden;
 }
 
 .heart {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    transform: rotate(45deg);
-    animation: floatUp 3s infinite ease-in-out;
+    color: red;
+    font-size: 2em;
+    animation: floatUp 5s linear infinite;
 }
 
-.heart::before,
-.heart::after {
-    content: '';
-    width: 50px;
-    height: 50px;
-    background: red;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.heart::before {
-    top: -25px;
-    left: 0;
-}
-
-.heart::after {
-    left: 25px;
-    top: 0;
-}
-
+/* Heart animation */
 @keyframes floatUp {
     0% {
+        transform: translateY(100vh) rotate(0deg);
         opacity: 1;
-        transform: translateY(0) rotate(45deg);
     }
     100% {
+        transform: translateY(-10vh) rotate(360deg);
         opacity: 0;
-        transform: translateY(-200px) rotate(45deg);
+    }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
